@@ -32,9 +32,9 @@ export class LoginComponent implements OnInit {
 
   public submit(){
     let data = this.loginForm.value;
-    this.dataService.startLoader();
-    this.dataService.post('/login', data).subscribe(res=>{
-      this.dataService.stopLoader();
+    // this.dataService.startLoader();
+    this.dataService.post('admin/login', data).subscribe(res=>{
+      // this.dataService.stopLoader();
       this.dataService.showSuccess(res['responseMessage']);
       this.dataService.setCookies('currentUsertoken', res['data'].token, 0.25);
       this.dataService.setCookies('currentUser', JSON.stringify(res['data']), 0.25);

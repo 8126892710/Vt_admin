@@ -1,7 +1,7 @@
 <body class="fixed-sn white-skin">
 
     <!-- Main Navigation -->
-    <app-header></app-header>
+    <app-header *ngIf="loginToken"></app-header>
 
     <router-outlet></router-outlet>
 

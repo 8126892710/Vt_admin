@@ -14,14 +14,14 @@ export class ErrorInterceptor implements HttpInterceptor {
             this.dataService.stopLoader();
             if (err.status === 401) {
                 // auto logout if 401 response returned from api
-                this.dataService.showError(err['responseMessage']);
+                this.dataService.showError(err.error['responseMessage']);
                 this.dataService.logout();
                 location.reload(true);
             }
             else if(err.status != 200){
-                this.dataService.showError(err['responseMessage']);
+                this.dataService.showError(err.error['responseMessage']);
             }
-            const error = err || err.statusText;
+            const error = err.error || err.statusText;
             return throwError(error);
         }))
     }

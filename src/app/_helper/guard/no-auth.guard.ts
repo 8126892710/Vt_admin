@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Observable } from 'rxjs';
 import { DataService } from 'src/app/_service/data-service.service';
 
 @Injectable({
@@ -11,20 +12,20 @@ export class NoAuthGuard implements CanActivate {
     }
     canActivate(
         next: ActivatedRouteSnapshot,
-        state: RouterStateSnapshot){
-        return this.dataService.getCookies('currentUser').then(user=>{
-            if(user){
-                var user_type = user['user_type'];
-                this.router.navigate([user_type]);
-                return false;
+        state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+        var loginToken = this.dataService.getCookies('currentUser') || "";
+        if(loginToken){
+            let user_type = this.dataService.getCookies('currentUser');
+            user_type = JSON.parse(user_type).user_type;
+            this.router.navigate([user_type]);
+            return false;
+        }
+        else{
+            if(window.location.pathname == '/auth/verification'){
+                this.router.navigate(['/']);
+                return false;                
             }
-            else{
-                if(window.location.pathname == '/auth/verification'){
-                    this.router.navigate(['/']);
-                    return false;                
-                }
-                return true;
-            }
-        })
+            return true;
+        }
     }
 }

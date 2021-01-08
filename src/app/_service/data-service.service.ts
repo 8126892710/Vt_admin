@@ -87,8 +87,11 @@ export class DataService {
     this.loader.stop();
   }
 
-  public logout(){
-    this.router.navigate(['/auth/login']);
+  public logout() {
+    // this.stopLoader();
+    this.removeCookies('currentUsertoken', '');
+    this.removeCookies('currentUser', '');
+    window.location.href = "auth/login";
   }
 
 }
