@@ -12,6 +12,7 @@ import {
   EmployeeRoasterComponent,
   MyAccountComponent 
 } from './index';
+import { AddOrderComponent } from './add-order/add-order.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {
     RoutePlannerComponent,
     CreateRoasterComponent,
     EmployeeRoasterComponent,
-    MyAccountComponent 
+    MyAccountComponent,
+    AddOrderComponent 
   ],
   imports: [
     CommonModule,

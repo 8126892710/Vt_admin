@@ -1,51 +1,56 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { 
-  DashboardComponent, 
+import { AddOrderComponent } from './add-order/add-order.component';
+import {
+  DashboardComponent,
   AssignOrderComponent,
   OrderStatusComponent,
   UserListComponent,
   RoutePlannerComponent,
   CreateRoasterComponent,
   EmployeeRoasterComponent,
-  MyAccountComponent 
+  MyAccountComponent
 } from './index';
 
 const routes: Routes = [
   {
-    path:'', redirectTo:'dashboard', pathMatch:'full'
+    path: '', redirectTo: 'dashboard', pathMatch: 'full'
   },
   {
-    path:'dashboard',
-    component:DashboardComponent
+    path: 'dashboard',
+    component: DashboardComponent
   },
   {
-    path:'my-account',
-    component:MyAccountComponent
+    path: 'my-account',
+    component: MyAccountComponent
   },
   {
-    path:'assign-order',
-    component:AssignOrderComponent
+    path: 'add-order',
+    component: AddOrderComponent
   },
   {
-    path:'order-status',
-    component:OrderStatusComponent
+    path: 'assign-order',
+    component: AssignOrderComponent
   },
   {
-    path:'user-list',
-    component:UserListComponent
+    path: 'order-status',
+    component: OrderStatusComponent
   },
   {
-    path:'route-planner',
-    component:RoutePlannerComponent
+    path: 'user-list',
+    component: UserListComponent
   },
   {
-    path:'create-roaster',
-    component:CreateRoasterComponent
+    path: 'route-planner',
+    component: RoutePlannerComponent
   },
   {
-    path:'employee-roaster',
-    component:EmployeeRoasterComponent
+    path: 'create-roaster',
+    component: CreateRoasterComponent
+  },
+  {
+    path: 'employee-roaster',
+    component: EmployeeRoasterComponent
   }
 ];
 
