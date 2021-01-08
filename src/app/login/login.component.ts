@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { DataService } from '../_service/data-service.service';
 
 @Component({
   selector: 'app-login',
@@ -11,19 +12,34 @@ export class LoginComponent implements OnInit {
 
   loginForm:FormGroup;
   constructor(
+    private dataService:DataService,
     private fb:FormBuilder,
     private router:Router
   ) { 
     this.loginForm = this.fb.group({
-      username:['', Validators.required],
+      user_type:['', Validators.required],
+      email:['', Validators.required],
       password:['', Validators.required]
     })
   }
 
   ngOnInit() {
   }
+
+  get f(){
+    return this.loginForm.controls;
+  }
+
   public submit(){
-    this.router.navigate(['/admin/dashboard']);
+    let data = this.loginForm.value;
+    // this.dataService.startLoader();
+    this.dataService.post('admin/login', data).subscribe(res=>{
+      // this.dataService.stopLoader();
+      this.dataService.showSuccess(res['responseMessage']);
+      this.dataService.setCookies('currentUsertoken', res['data'].token, 0.25);
+      this.dataService.setCookies('currentUser', JSON.stringify(res['data']), 0.25);
+      this.router.navigate(['/admin/dashboard']);
+    });
   }
 
 }
