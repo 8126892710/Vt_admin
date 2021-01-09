@@ -21,15 +21,14 @@ async function main() {
     let conn;
     try {
         conn = await pool.getConnection();
-        // let rows = await conn.query("SELECT * FROM COMPANY;");
-        // console.log('done', rows)
+        console.log('Server connected.')
     } catch (err) {
-        console.log('done not', err)
+        console.log('Server not connected:', err)
     } finally {
         if (conn) {
-            console.log('check conn finally')
+            console.log('Server connected.')
         } else {
-            console.log('check finally')
+            console.log('Server not connected.')
         }
     }
 }
