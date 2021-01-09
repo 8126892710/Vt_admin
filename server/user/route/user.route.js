@@ -9,6 +9,7 @@ app.post('/login', userCtrl.login);
 app.get('/companyList', userCtrl.companyList);
 app.get('/orderList', userCtrl.orderList);
 app.post('/addOrder', userCtrl.addOrder);
-
+app.post('/addEmployee', userCtrl.addEmployee);
+app.get('/employeeList', userCtrl.employeeList);
 module.exports = app;
 

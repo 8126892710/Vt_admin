@@ -22,11 +22,11 @@ async function login(req, res) {
         let q = `SELECT * FROM ADMIN WHERE EMAIL='${req.body.email}' AND PASSWORD='${req.body.password}'`;
         let rows = await pool.query(q).then(data => {
             if (!data.length)
-            return response.sendResponse(res, 404, 'Invalid Email/Password.', data);
+                return response.sendResponse(res, 404, 'Invalid Email/Password.', data);
             let user = _.head(data);
             user = _.extend(user, {
-                token:"tertewrt12345",
-                user_type:req.body.user_type
+                token: "tertewrt12345",
+                user_type: req.body.user_type
             })
             return response.sendResponse(res, 200, 'Success', user);
         }).catch(err => {
@@ -64,7 +64,7 @@ async function adminList(req, res) {
 
 async function companyList(req, res) {
     try {
-        let rows = await pool.query("SELECT * FROM ADMIN;").then(data => {
+        let rows = await pool.query("SELECT * FROM COMPANY;").then(data => {
             return response.sendResponse(res, 200, 'Success', data);
         }).catch(err => {
             return response.sendResponse(res, 400, 'Error', err);
@@ -73,16 +73,17 @@ async function companyList(req, res) {
         return response.sendResponse(res, 400, 'Error', err);
     }
 }
+/**Only by company/school. */
 async function addOrder(req, res) {
-    // try {
-    //     let row = await pool.query(`INSERT INTO ORDER (idADMIN,ROLE,EMAIL,PASSWORD) VALUES ('${req.body.idADMIN}','ADMIN','${req.body.EMAIL}','${req.body.PASSWORD}');`).then(data => {
-    //         return response.sendResponse(res, 200, 'Success', data);
-    //     }).catch(err => {
-    //         return response.sendResponse(res, 400, 'Error', err);
-    //     });
-    // } catch (err) {
-    //     return response.sendResponse(res, 400, 'Error', err);
-    // }
+    try {
+        let row = await pool.query(`INSERT INTO ORDER (order_id,created_by,order_type,PASSWORD) VALUES ('${req.body.idADMIN}','ADMIN','${req.body.EMAIL}','${req.body.PASSWORD}');`).then(data => {
+            return response.sendResponse(res, 200, 'Success', data);
+        }).catch(err => {
+            return response.sendResponse(res, 400, 'Error', err);
+        });
+    } catch (err) {
+        return response.sendResponse(res, 400, 'Error', err);
+    }
 }
 async function orderList(req, res) {
     try {
@@ -95,8 +96,37 @@ async function orderList(req, res) {
         return response.sendResponse(res, 400, 'Error1', err);
     }
 }
-
+/**Employee add. */
+async function addEmployee(req, res) {
+    try {
+        let row = await pool.query(`INSERT INTO EMPLOYEE (emp_id,first_name,last_name,company_id,emp_type_id) VALUES ('${req.body.emp_id}','${req.body.first_name}','${req.body.last_name}','${req.body.company_id}','${req.body.emp_type_id}');`).then(data => {
+            return response.sendResponse(res, 200, 'Success', data);
+        }).catch(err => {
+            return response.sendResponse(res, 400, 'Error', err);
+        });
+    } catch (err) {
+        return response.sendResponse(res, 400, 'Error', err);
+    }
+}
+/**Employee List and search. */
+async function employeeList(req, res) {
+    try {
+        let query = ""
+        if (req.query.emp_id)
+            query = `SELECT * FROM EMPLOYEE WHERE emp_id='${req.query.emp_id}'`
+        else
+            query = "SELECT * FROM EMPLOYEE;"
+        console.log('checck=>', query)
+        let rows = await pool.query(query).then(data => {
+            return response.sendResponse(res, 200, 'Success', data);
+        }).catch(err => {
+            return response.sendResponse(res, 400, 'Error', err);
+        });
+    } catch (err) {
+        return response.sendResponse(res, 400, 'Error', err);
+    }
+}
 module.exports = {
-    login, companyList, addAdmin, adminList, addOrder, orderList
+    login, companyList, addAdmin, adminList, addOrder, orderList, addEmployee, employeeList
 }
 
