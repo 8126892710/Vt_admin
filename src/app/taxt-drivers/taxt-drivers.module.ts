@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SchoolRoutingModule } from './school-routing.module';
+import { TaxtDriversRoutingModule } from './taxt-drivers-routing.module';
 import { SharedModuleModule } from '../shared-module/shared-module.module';
 
 
@@ -8,8 +8,8 @@ import { SharedModuleModule } from '../shared-module/shared-module.module';
   declarations: [],
   imports: [
     CommonModule,
-    SchoolRoutingModule,
+    TaxtDriversRoutingModule,
     SharedModuleModule
   ]
 })
-export class SchoolModule { }
+export class TaxtDriversModule { }

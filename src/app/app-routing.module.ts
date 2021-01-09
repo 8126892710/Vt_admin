@@ -25,10 +25,10 @@ const routes: Routes = [
         loadChildren:()=>import('./admin/admin.module').then(m=> m.AdminModule)
       },
       {
-        path:'corporate',
+        path:'corporates',
         component:HomeComponent,
         canActivate: [AuthGuard],
-        loadChildren:()=>import('./corporate/corporate.module').then(m=> m.CorporateModule)
+        loadChildren:()=>import('./corporates/corporates.module').then(m=> m.CorporatesModule)
       },
       {
         path:'school',
@@ -37,10 +37,16 @@ const routes: Routes = [
         loadChildren:()=>import('./school/school.module').then(m=> m.SchoolModule)
       },
       {
-        path:'company',
+        path:'taxi-companies',
         component:HomeComponent,
         canActivate: [AuthGuard],
-        loadChildren:()=>import('./company/company.module').then(m=> m.CompanyModule)
+        loadChildren:()=>import('./taxt-companies/taxt-companies.module').then(m=> m.TaxtCompaniesModule)
+      },
+      {
+        path:'taxi-drivers',
+        component:HomeComponent,
+        canActivate: [AuthGuard],
+        loadChildren:()=>import('./taxt-drivers/taxt-drivers.module').then(m=> m.TaxtDriversModule)
       }
     ]
   }

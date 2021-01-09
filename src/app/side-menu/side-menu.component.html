@@ -8,33 +8,53 @@
             <a [routerLink]="['/admin/dashboard']" class="collapsible-header waves-effect"><i
                 class="w-fa fas fa-tachometer-alt"></i>Dashboard</a>
           </li>
-          <!-- <li>
-            <a [routerLink]="['/admin/add-order']" class="collapsible-header waves-effect"><i
+          <li *ngIf="user_type == 'corporates' || user_type == 'school'">
+            <a [routerLink]="['/', user_type, 'add-order']" class="collapsible-header waves-effect"><i
                 class="w-fa fas fa-list"></i>Add Order</a>
-          </li> -->
-          <li>
-            <a [routerLink]="['/admin/assign-order']" class="collapsible-header waves-effect"><i
+          </li>
+          <li *ngIf="user_type == 'taxi-drivers'">
+            <a [routerLink]="['/', user_type, 'order-list']" class="collapsible-header waves-effect"><i
+                class="w-fa fas fa-list"></i>Order List</a>
+          </li>
+          <li *ngIf="user_type == 'taxi-drivers'">
+            <a [routerLink]="['/', user_type, 'order-list']" class="collapsible-header waves-effect"><i
+                class="w-fa fas fa-list"></i>Active Order</a>
+          </li>
+          <li *ngIf="user_type == 'taxi-drivers'">
+            <a [routerLink]="['/', user_type, 'order-list']" class="collapsible-header waves-effect"><i
+                class="w-fa fas fa-list"></i>Order History</a>
+          </li>
+          <li *ngIf="user_type == 'taxi-companies'">
+            <a [routerLink]="['/', user_type, 'assign-order']" class="collapsible-header waves-effect"><i
                 class="w-fa fas fa-list"></i>Assign Order</a>
           </li>
-             <li>
-            <a [routerLink]="['/admin/order-status']" class="collapsible-header waves-effect"><i
+          <li *ngIf="user_type == 'admin' || user_type == 'corporates' || user_type == 'taxi-companies'">
+            <a [routerLink]="['/', user_type, 'order-status']" class="collapsible-header waves-effect"><i
                 class="w-fa fas fa-car"></i>Order Status</a>
           </li>
-           <li>
-            <a [routerLink]="['/admin/user-list']" class="collapsible-header waves-effect"><i
-                class="w-fa fas fa-list"></i>Users</a>
+           <li *ngIf="user_type == 'admin' || user_type == 'corporates'">
+            <a [routerLink]="['/', user_type, 'user-list']" class="collapsible-header waves-effect">
+              <i class="w-fa fas fa-list"></i>Users</a>
           </li>
-           <li>
-            <a [routerLink]="['/admin/route-planner']" class="collapsible-header waves-effect"><i
+          <!-- <li>
+            <a *ngIf="user_type == 'admin'" [routerLink]="['/admin/route-planner']" class="collapsible-header waves-effect"><i
                 class="w-fa fas fa-list"></i>Route Planner</a>
-          </li>
-           <li>
-            <a [routerLink]="['/admin/create-roaster']" class="collapsible-header waves-effect"><i
+          </li> -->
+          <li *ngIf="user_type == 'admin'">
+            <a [routerLink]="['/', user_type, 'create-roaster']" class="collapsible-header waves-effect"><i
                 class="w-fa fas fa-list"></i>Create Roaster</a>
           </li>
-           <li>
-            <a [routerLink]="['/admin/employee-roaster']" class="collapsible-header waves-effect"><i
+          <li *ngIf="user_type == 'admin' || user_type == 'corporates'">
+            <a [routerLink]="['/', user_type, 'employee-roaster']" class="collapsible-header waves-effect"><i
                 class="w-fa fas fa-table"></i>Employee Roster</a>
+          </li>
+          <li *ngIf="user_type == 'taxi-companies'">
+            <a [routerLink]="['/', user_type, 'employee-roaster']" class="collapsible-header waves-effect"><i
+                class="w-fa fas fa-table"></i>View Drivers</a>
+          </li>
+          <li *ngIf="user_type == 'taxi-companies'">
+            <a [routerLink]="['/', user_type, 'employee-roaster']" class="collapsible-header waves-effect"><i
+                class="w-fa fas fa-table"></i>View Taxi</a>
           </li>
         </ul>
       </li>

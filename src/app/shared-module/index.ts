@@ -1,4 +1,5 @@
 export * from './assign-order/assign-order.component';
+export * from './add-order/add-order.component';
 export * from './dashboard/dashboard.component';
 export * from './create-roaster/create-roaster.component';
 export * from './employee-roaster/employee-roaster.component';
