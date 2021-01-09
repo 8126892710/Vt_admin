@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../_service/data-service.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  loginToken:string = "";
+  constructor(private dataService:DataService) { 
+    this.loginToken = this.dataService.getCookies('currentUsertoken') || ""
+  }
 
   ngOnInit() {
   }

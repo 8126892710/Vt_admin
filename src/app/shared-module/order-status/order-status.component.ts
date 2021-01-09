@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+declare var $:any
 
 @Component({
   selector: 'app-order-status',
@@ -10,6 +11,11 @@ export class OrderStatusComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.callingJQuery();
+  }
+
+  public callingJQuery(){
+    $('#dtMaterialDesignExample').DataTable();
   }
 
 }

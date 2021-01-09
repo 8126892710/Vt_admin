@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+declare var $:any
 
 @Component({
   selector: 'app-user-list',
@@ -10,6 +11,12 @@ export class UserListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.callingJQuery();
+  }
+
+  public callingJQuery(){
+    $('.mdb-select').materialSelect();
+    $('#dtMaterialDesignExample').DataTable();
   }
 
 }

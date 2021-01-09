@@ -23,36 +23,11 @@ export class HeaderComponent implements OnInit {
   callingJQuery(){
 
     $(".button-collapse").sideNav();
-
-    var container = document.querySelector('.custom-scrollbar');
-    var ps = new PerfectScrollbar(container, {
-      wheelSpeed: 2,
-      wheelPropagation: true,
-      minScrollbarLength: 20
-    });
-
-    // Data Picker Initialization
-    // $('.datepicker').pickadate();
-
-    // Material Select Initialization
-    // $(document).ready(function () {
-    //   $('.mdb-select').material_select();
-    // });
-
+    
     // Tooltips Initialization
     $(function () {
       $('[data-toggle="tooltip"]').tooltip()
     })
-
-    // Small chart
-    // $(function () {
-    //   $('.min-chart#chart-sales').easyPieChart({
-    //     barColor: "#FF5252",
-    //     onStep: function (from, to, percent) {
-    //       $(this.el).find('.percent').text(Math.round(percent));
-    //     }
-    //   });
-    // });
    
     $(function () {
       $('#dark-mode').on('click', function (e) {

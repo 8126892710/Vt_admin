@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+declare var $:any
 
 @Component({
   selector: 'app-create-roaster',
@@ -10,6 +11,14 @@ export class CreateRoasterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.callingJQuery();
+  }
+
+  public callingJQuery(){
+    $('.mdb-select').materialSelect();
+    $('.timepicker').pickatime({
+      twelvehour: true
+    });
   }
 
 }

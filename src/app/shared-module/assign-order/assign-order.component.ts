@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+declare var $:any
 
 @Component({
   selector: 'app-assign-order',
@@ -10,6 +11,11 @@ export class AssignOrderComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.callingJQuery();
+  }
+
+  public callingJQuery(){
+    $('.mdb-select').materialSelect();
   }
 
 }

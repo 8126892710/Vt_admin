@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../_service/data-service.service';
+declare var $:any
 
 @Component({
   selector: 'app-login',
@@ -24,6 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+  
   }
 
   get f(){
@@ -38,7 +40,9 @@ export class LoginComponent implements OnInit {
       this.dataService.showSuccess(res['responseMessage']);
       this.dataService.setCookies('currentUsertoken', res['data'].token, 0.25);
       this.dataService.setCookies('currentUser', JSON.stringify(res['data']), 0.25);
-      this.router.navigate(['/admin/dashboard']);
+      this.router.navigate(['/admin/dashboard']).then(() => {
+        // window.location.reload();
+      });
     });
   }
 
