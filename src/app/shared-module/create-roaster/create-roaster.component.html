@@ -1,156 +1,287 @@
- <!-- Main layout -->
-  <main>
-    <div class="container-fluid">
-      <!--Section: Contact v.1 -->
-      <section class="section pb-5">
+<!-- Main layout -->
+<main>
+  <div class="container-fluid">
+    <!--Section: Contact v.1 -->
+    <section class="section pb-5">
 
-       <!-- Gird column -->
-        <div class="col-md-12">
+      <!-- Gird column -->
+      <div class="col-md-12">
 
-          <h5 class="my-4 dark-grey-text font-weight-bold">Roaster</h5>
+        <h5 class="my-4 dark-grey-text font-weight-bold">Roaster</h5>
 
-          <div class="card">
-            <div class="card-body">
+        <div class="card">
+          <div class="card-body">
 
-               <form [formGroup]="firstForm">
-                <!-- Grid row -->
-                <div class="row">
-                  <!-- Grid column -->
-                  <div class="col">
-                    <!-- Default input -->
-                    <select formControlName="user_type" (change)="onSelect()" class="mdb-select md-form">
-                              <option value="admin">VT Admin</option>
-                              <option value="corporates">Corporates</option>
-                              <option value="school">School</option>
-                            </select>
-                     <label class="mdb-main-label">Select User Type</label>
-                  </div>
-                  <!-- Grid column -->
-
-                  <!-- Grid column -->
-                 <div class="col">
-                    <!-- Default input -->
-                    <select formControlName="user" (change)="onSelect()" class="mdb-select md-form">
-                              <option value="admin">VT Admin</option>
-                              <option value="corporates">Corporates</option>
-                              <option value="school">School</option>
-                            </select>
-                     <label class="mdb-main-label">Select User</label>
-                  </div>
-
-                
-                  <!-- Grid column -->
+            <form [formGroup]="firstForm">
+              <!-- Grid row -->
+              <div class="row">
+                <!-- Grid column -->
+                <div class="col">
+                  <!-- Default input -->
+                  <select formControlName="user_type" (change)="onSelect()" class="mdb-select md-form">
+                    <option value="admin">VT Admin</option>
+                    <option value="corporates">Corporates</option>
+                    <option value="school">School</option>
+                  </select>
+                  <label class="mdb-main-label">Select User Type</label>
                 </div>
-                <!-- Grid row -->
-              </form>
-              <form [formGroup]="secondForm">
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col">
+                  <!-- Default input -->
+                  <select formControlName="user" (change)="onSelect()" class="mdb-select md-form">
+                    <option value="admin">VT Admin</option>
+                    <option value="corporates">Corporates</option>
+                    <option value="school">School</option>
+                  </select>
+                  <label class="mdb-main-label">Select User</label>
+                </div>
+
+
+                <!-- Grid column -->
+              </div>
+              <!-- Grid row -->
+            </form>
+            <form [formGroup]="secondForm">
               <div id="table-scroll" class="table-scroll">
-                  <div class="table-wrap">
-              <table  class="table table-bordered table-condensed freeze-col text-center" cellspacing="0" width="100%">
-                <thead>
-                  <tr>
-                    <th> Name
-                    </th>
-                    <th colspan="3" >01/01/2021<br> Mon
-                    </th>
-                    <th colspan="3" >02/01/2021<br> Mon
-                    </th>
-                    <th colspan="3" >03/01/2021<br> Mon
-                    </th>
-                    <th colspan="3" >04/01/2021<br> Mon
-                    </th>
-                    <th colspan="3" >05/01/2021<br> Mon
-                    </th>
-                     <th colspan="3" >06/01/2021<br> Mon
-                    </th>
-                     <th colspan="3" >07/01/2021<br> Mon
-                    </th>
+                <div class="table-wrap">
+                  <table class="table table-bordered table-condensed freeze-col text-center" cellspacing="0"
+                    width="100%">
+                    <thead>
+                      <tr>
+                        <th> Name
+                        </th>
+                        <th colspan="2">01/01/2021<br> Mon
+                        </th>
+                        <th colspan="2">02/01/2021<br> Mon
+                        </th>
+                        <th colspan="2">03/01/2021<br> Mon
+                        </th>
+                        <th colspan="2">04/01/2021<br> Mon
+                        </th>
+                        <th colspan="2">05/01/2021<br> Mon
+                        </th>
+                        <th colspan="2">06/01/2021<br> Mon
+                        </th>
+                        <th colspan="2">07/01/2021<br> Mon
+                        </th>
 
-                  </tr>
+                      </tr>
 
-                  <tr>
-                    <th>
-                    </th>
-                    <th  >Pickup Time
-                    </th>
-                    <th  >Drop Time
-                    </th>
-                    <th  >Location
-                    </th>
-                    <th  >Pickup Time
-                    </th>
-                    <th  >Drop Time
-                    </th>
-                    <th  >Location
-                    </th>
-                    <th  >Pickup Time
-                    </th>
-                    <th  >Drop Time
-                    </th>
-                    <th  >Location
-                    </th>
-                    <th  >Pickup Time
-                    </th>
-                    <th  >Drop Time
-                    </th>
-                    <th  >Location
-                    </th>
-                    <th  >Pickup Time
-                    </th>
-                    <th  >Drop Time
-                    </th>
-                    <th  >Location
-                    </th>
-                    <th  >Pickup Time
-                    </th>
-                    <th  >Drop Time
-                    </th>
-                    <th  >Location
-                    </th>
-                    <th  >Pickup Time
-                    </th>
-                    <th  >Drop Time
-                    </th>
-                    <th  >Location
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr >
-                    <td>AAAA Nixon</td>
-                    <td><div class="md-form"><input style="width:80px;" placeholder="Select time" type="text" class="timepicker"></div></td>
-                    <td><div class="md-form"><input style="width:80px;" placeholder="Select time" type="text" class="timepicker"></div></td>
-                    <td><div class="md-form"><input style="width:80px;" placeholder="Location" type="text"></div></td>
-                    <td><div class="md-form"><input style="width:80px;" placeholder="Select time" type="text" class="timepicker"></div></td>
-                    <td><div class="md-form"><input style="width:80px;" placeholder="Select time" type="text" class="timepicker"></div></td>
-                    <td><div class="md-form"><input style="width:80px;" placeholder="Location" type="text"></div></td>
-                    <td><div class="md-form"><input style="width:80px;" placeholder="Select time" type="text" class="timepicker"></div></td>
-                    <td><div class="md-form"><input style="width:80px;" placeholder="Select time" type="text" class="timepicker"></div></td>
-                    <td><div class="md-form"><input style="width:80px;" placeholder="Location" type="text"></div></td>
-                    <td><div class="md-form"><input style="width:80px;" placeholder="Select time" type="text" class="timepicker"></div></td>
-                    <td><div class="md-form"><input style="width:80px;" placeholder="Select time" type="text" class="timepicker"></div></td>
-                    <td><div class="md-form"><input style="width:80px;" placeholder="Location" type="text"></div></td>
-                    <td><div class="md-form"><input style="width:80px;" placeholder="Select time" type="text" class="timepicker"></div></td>
-                    <td><div class="md-form"><input style="width:80px;" placeholder="Select time" type="text" class="timepicker"></div></td>
-                    <td><div class="md-form"><input style="width:80px;" placeholder="Location" type="text"></div></td>
-                    <td><div class="md-form"><input style="width:80px;" placeholder="Select time" type="text" class="timepicker"></div></td>
-                    <td><div class="md-form"><input style="width:80px;" placeholder="Select time" type="text" class="timepicker"></div></td>
-                    <td><div class="md-form"><input style="width:80px;" placeholder="Location" type="text"></div></td>
-                    <td><div class="md-form"><input style="width:80px;" placeholder="Select time" type="text" class="timepicker"></div></td>
-                    <td><div class="md-form"><input style="width:80px;" placeholder="Select time" type="text" class="timepicker"></div></td>
-                    <td><div class="md-form"><input style="width:80px;" placeholder="Location" type="text"></div></td>
-                  </tr>              
-                  
-                </tbody>
+                      <tr>
+                        <th>
+                        </th>
+                        <th>Pickup Time
+                        </th>
+                        <th>Drop Time
+                        </th>
+                        <!-- <th  >Location
+                    </th> -->
+                        <th>Pickup Time
+                        </th>
+                        <th>Drop Time
+                        </th>
+                        <!-- <th  >Location
+                    </th> -->
+                        <th>Pickup Time
+                        </th>
+                        <th>Drop Time
+                        </th>
+                        <!-- <th  >Location
+                    </th> -->
+                        <th>Pickup Time
+                        </th>
+                        <th>Drop Time
+                        </th>
+                        <!-- <th  >Location
+                    </th> -->
+                        <th>Pickup Time
+                        </th>
+                        <th>Drop Time
+                        </th>
+                        <!-- <th  >Location
+                    </th> -->
+                        <th>Pickup Time
+                        </th>
+                        <th>Drop Time
+                        </th>
+                        <!-- <th  >Location
+                    </th> -->
+                        <th>Pickup Time
+                        </th>
+                        <th>Drop Time
+                        </th>
+                        <!-- <th  >Location
+                    </th> -->
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>AAAA Nixon</td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Select time" type="text"
+                              class="timepicker">
+                            <input style="width:80px;" placeholder="Location" type="text">
+                          </div>
+                        </td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Select time" type="text"
+                              class="timepicker">
+                            <input style="width:80px;" placeholder="Location" type="text">
+                          </div>
+                        </td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Select time" type="text"
+                              class="timepicker">
+                            <input style="width:80px;" placeholder="Location" type="text">
+                          </div>
+                        </td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Select time" type="text"
+                              class="timepicker">
+                            <input style="width:80px;" placeholder="Location" type="text">
+                          </div>
+                        </td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Select time" type="text"
+                              class="timepicker">
+                            <input style="width:80px;" placeholder="Location" type="text">
+                          </div>
+                        </td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Select time" type="text"
+                              class="timepicker">
+                            <input style="width:80px;" placeholder="Location" type="text">
+                          </div>
+                        </td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Select time" type="text"
+                              class="timepicker">
+                            <input style="width:80px;" placeholder="Location" type="text">
+                          </div>
+                        </td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Select time" type="text"
+                              class="timepicker">
+                            <input style="width:80px;" placeholder="Location" type="text">
+                          </div>
+                        </td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Select time" type="text"
+                              class="timepicker">
+                            <input style="width:80px;" placeholder="Location" type="text">
+                          </div>
+                        </td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Select time" type="text"
+                              class="timepicker">
+                            <input style="width:80px;" placeholder="Location" type="text">
+                          </div>
+                        </td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Select time" type="text"
+                              class="timepicker">
+                            <input style="width:80px;" placeholder="Location" type="text">
+                          </div>
+                        </td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Select time" type="text"
+                              class="timepicker">
+                            <input style="width:80px;" placeholder="Location" type="text">
+                          </div>
+                        </td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Select time" type="text"
+                              class="timepicker">
+                            <input style="width:80px;" placeholder="Location" type="text">
+                          </div>
+                        </td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Select time" type="text"
+                              class="timepicker">
+                            <input style="width:80px;" placeholder="Location" type="text">
+                          </div>
+                        </td>
+                        <!-- <td><div class="md-form"><input style="width:80px;" placeholder="Location" type="text"></div></td> -->
+                        <!-- <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Select time" type="text"
+                              class="timepicker"></div>
+                        </td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Select time" type="text"
+                              class="timepicker"></div>
+                        </td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Location" type="text"></div>
+                        </td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Select time" type="text"
+                              class="timepicker"></div>
+                        </td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Select time" type="text"
+                              class="timepicker"></div>
+                        </td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Location" type="text"></div>
+                        </td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Select time" type="text"
+                              class="timepicker"></div>
+                        </td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Select time" type="text"
+                              class="timepicker"></div>
+                        </td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Location" type="text"></div>
+                        </td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Select time" type="text"
+                              class="timepicker"></div>
+                        </td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Select time" type="text"
+                              class="timepicker"></div>
+                        </td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Location" type="text"></div>
+                        </td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Select time" type="text"
+                              class="timepicker"></div>
+                        </td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Select time" type="text"
+                              class="timepicker"></div>
+                        </td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Location" type="text"></div>
+                        </td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Select time" type="text"
+                              class="timepicker"></div>
+                        </td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Select time" type="text"
+                              class="timepicker"></div>
+                        </td>
+                        <td>
+                          <div class="md-form"><input style="width:80px;" placeholder="Location" type="text"></div>
+                        </td>
+                      </tr> -->
 
-              </table>
-            </div>
+                    </tbody>
 
-          </div>  
-          <div class="text-center mt-4">
-              <button class="btn btn-outline-primary btn-sm waves-effect waves-light">Submit</button>
-          </div>
-        </form>
+                  </table>
+                </div>
+
+              </div>
+              <div class="text-center mt-4">
+                <button class="btn btn-outline-primary btn-sm waves-effect waves-light">Submit</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
