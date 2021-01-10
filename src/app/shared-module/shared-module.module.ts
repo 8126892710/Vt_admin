@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { 
   DashboardComponent, 
@@ -27,7 +28,9 @@ import {
     AddOrderComponent 
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule, 
+    ReactiveFormsModule
   ],
   exports:[
     DashboardComponent, 

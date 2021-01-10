@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../_service/data-service.service';
+import { DataService } from '../../_service/data-service.service';
 import { Router } from '@angular/router';
 declare var $:any
 declare var PerfectScrollbar:any

@@ -12,11 +12,6 @@ export class DashboardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.callingJQuery();
-  }
-
-  callingJQuery(){
-    $(".button-collapse").sideNav();
   }
 
 }

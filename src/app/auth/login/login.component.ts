@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { DataService } from '../_service/data-service.service';
+import { DataService } from '../../_service/data-service.service';
 declare var $:any
 
 @Component({
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-  
+    this.callingJQuery();
   }
 
   get f(){
@@ -44,6 +44,10 @@ export class LoginComponent implements OnInit {
         // window.location.reload();
       });
     });
+  }
+
+  public callingJQuery(){
+    $('.mdb-select').materialSelect();
   }
 
 }
