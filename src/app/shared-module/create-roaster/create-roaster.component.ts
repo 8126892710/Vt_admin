@@ -27,7 +27,11 @@ export class CreateRoasterComponent implements OnInit {
   }
 
   public submitForm(){
-    console.log("===========>>>",this.secondForm.value);
+    let data = { arr:this.secondForm.value.list };
+    console.log("============>>>>",data);
+    this.dataService.post('admin/createEmployeeRoster', data).subscribe(res=>{
+      this.dataService.showSuccess(res['responseMessage']);
+    })
   }
 
   ngOnInit() {
@@ -371,7 +375,8 @@ export class CreateRoasterComponent implements OnInit {
               pickup_time:  res['data'][i].pickup[j].pickup_time || '',
               drop_time:  res['data'][i].pickup[j].drop_time || '',
               pickup_location: res['data'][i].pickup[j].pickup_location || '',
-              drop_location: res['data'][i].pickup[j].drop_location || ''
+              drop_location: res['data'][i].pickup[j].drop_location || '',
+              date: res['data'][i].pickup[j].date || ''
             }))
           }
         }
@@ -382,7 +387,8 @@ export class CreateRoasterComponent implements OnInit {
               pickup_time:'',
               drop_time:'',
               pickup_location:'',
-              drop_location:''
+              drop_location:'',
+              date:`${j+18}-01-2021`
             }))
           }
         }
