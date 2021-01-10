@@ -3,6 +3,8 @@ const jwt = require('jsonwebtoken');
 const sql = require('../../../app');
 const mariadb = require('mariadb');
 const _ = require('lodash');
+const async = require('async');
+const moment = require('moment');
 
 /**-----Database connect----------*/
 
@@ -117,7 +119,6 @@ async function employeeList(req, res) {
             query = `SELECT * FROM EMPLOYEE WHERE emp_id='${req.query.emp_id}'`
         else
             query = "SELECT * FROM EMPLOYEE;"
-        console.log('checck=>', query)
         let rows = await pool.query(query).then(data => {
             return response.sendResponse(res, 200, 'Success', data);
         }).catch(err => {
@@ -127,7 +128,135 @@ async function employeeList(req, res) {
         return response.sendResponse(res, 400, 'Error', err);
     }
 }
+const arr = [
+    {
+        id: 1,
+        name: 'Umesh',
+        date: '10-01-2021',
+        pickup: [
+            {
+                "id": 1,
+                "pickup_time": "",
+                "drop_time": "",
+                "pickup_location": "",
+                "drop_location": ""
+            },
+            {
+                "id": 2,
+                "pickup_time": "",
+                "drop_time": "",
+                "pickup_location": "",
+                "drop_location": ""
+            },
+            {
+                "id": 3,
+                "pickup_time": "",
+                "drop_time": "",
+                "pickup_location": "",
+                "drop_location": ""
+            },
+            {
+                "id": 4,
+                "pickup_time": "",
+                "drop_time": "",
+                "pickup_location": "",
+                "drop_location": ""
+            },
+            {
+                "id": 5,
+                "pickup_time": "",
+                "drop_time": "",
+                "pickup_location": "",
+                "drop_location": ""
+            },
+            {
+                "id": 6,
+                "pickup_time": "",
+                "drop_time": "",
+                "pickup_location": "",
+                "drop_location": ""
+            },
+            {
+                "id": 7,
+                "pickup_time": "",
+                "drop_time": "",
+                "pickup_location": "",
+                "drop_location": ""
+            }
+        ]
+    }
+]
+async function createEmployeeRoster(req, res) {
+    try {
+        async.forEachSeries(req.body.arr, async (doc, next) => {
+            async.forEachSeries(doc.pickup, async (m, cb) => {
+                let q = `INSERT INTO ROSTER (date,emp_id,name,pickup_time,drop_time,pickup_location,drop_location)
+            VALUES ('${m.date}','${doc.id}','${doc.name}',
+            '${m.pickup_time}','${m.drop_time}',
+            '${m.pickup_location}','${m.drop_location}');`
+                let row = await pool.query(q).then(data => {
+                    console.log('data created.')
+                }).catch(err => {
+                    console.log('err=>', err)
+                });
+            }, er => {
+                console.log('err', er)
+            })
+        }, err => {
+            return response.sendResponse(res, 200, 'Success.');
+        })
+    } catch (err) {
+        return response.sendResponse(res, 400, 'Error', err);
+    }
+    //     try {
+    //         for (let i = 0; i < arr.length; i++) {
+    //             for (let j = 0; j < arr[i].pickup.length; j++) {
+    //                 let q = `INSERT INTO ROSTER (emp_id,name,pickup_time,dropoff_time,pickup_location,dropoff_location,date)
+    //  VALUES ('${arr[i].id}','${arr[i].name}',
+    //  '${arr[i].pickup[j].pickup_time}','${arr[i].pickup[j].drop_time}',
+    //  '${arr[i].pickup[j].pickup_location}','${arr[i].pickup[j].dropoff_location}','${arr[i].pickup[j].date}');`
+    //                 let row = await pool.query(q).then(data => {
+    //                     return response.sendResponse(res, 200, 'Success', data);
+    //                 }).catch(err => {
+    //                     return response.sendResponse(res, 400, 'Error', err);
+    //                 });
+    //             }
+    //         }
+    //     } catch (err) {
+    //         return response.sendResponse(res, 400, 'Error', err);
+    //     }
+}
+async function employeeRosterList(req, res) {
+    try {
+        let query = ""
+        if (req.query.emp_id)
+            query = `SELECT * FROM ROSTER WHERE emp_id='${req.query.emp_id}'`;
+        else if (req.query.fromDate && req.query.toDate)
+            query = `SELECT * FROM ROSTER WHERE emp_id='${req.query.emp_id}' && from_date='${req.query.fromDate}' && to_date='${req.query.toDate}'`;
+        else
+            query = "SELECT * FROM ROSTER;";
+        let rows = await pool.query(query).then(data => {
+            let arr = [];
+            async.forEachSeries(data, async (m, next) => {
+                arr.push({
+                    'title': `Drop:${m.drop_time},${m.drop_location}`,
+                    'start': moment(m.date).format('YYYY-MM-DD')
+                })
+                arr.push({
+                    'title': `Pickup:${m.pickup_time},${m.pickup_location}`,
+                    'start': moment(m.date).format('YYYY-MM-DD')
+                })
+            }, err => {
+                return response.sendResponse(res, 200, 'Success', arr);
+            })
+        }).catch(err => {
+            return response.sendResponse(res, 400, 'Error', err);
+        });
+    } catch (err) {
+        return response.sendResponse(res, 400, 'Error', err);
+    }
+}
 module.exports = {
-    login, companyList, addAdmin, adminList, addOrder, orderList, addEmployee, employeeList
+    login, companyList, addAdmin, adminList, addOrder, orderList, addEmployee, employeeList, createEmployeeRoster, employeeRosterList
 }
 

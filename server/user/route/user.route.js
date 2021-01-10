@@ -11,5 +11,7 @@ app.get('/orderList', userCtrl.orderList);
 app.post('/addOrder', userCtrl.addOrder);
 app.post('/addEmployee', userCtrl.addEmployee);
 app.get('/employeeList', userCtrl.employeeList);
+app.post('/createEmployeeRoster', userCtrl.createEmployeeRoster);
+app.get('/employeeRosterList', userCtrl.employeeRosterList);
 module.exports = app;
 
