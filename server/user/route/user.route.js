@@ -10,6 +10,6 @@ app.get('/companyList', userCtrl.companyList);
 app.get('/orderList', userCtrl.orderList);
 app.post('/addOrder', userCtrl.addOrder);
 app.post('/addEmployee', userCtrl.addEmployee);
-app.get('/employeeList', userCtrl.employeeList);
+app.post('/employeeList', userCtrl.employeeList);
 module.exports = app;
 

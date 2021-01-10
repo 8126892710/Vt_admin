@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
+import { DataService } from 'src/app/_service/data-service.service';
 declare var $: any
 
 @Component({
@@ -12,7 +13,10 @@ export class CreateRoasterComponent implements OnInit {
   firstForm: FormGroup;
   secondForm: FormGroup;
   roasterList: any = [];
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private dataService:DataService
+  ) {
     this.firstForm = this.fb.group({
       user: [''],
       user_type: [''],
@@ -22,18 +26,26 @@ export class CreateRoasterComponent implements OnInit {
     })
   }
 
-  ngOnInit() {
-    this.callingJQuery();
-    this.getRoasterlist();
+  public submitForm(){
+    console.log("===========>>>",this.secondForm.value);
   }
 
-  get roasterFormlist(): FormArray {
+  ngOnInit() {
+    this.callingJQuery();
+    // this.getRoasterlist();
+    this.getEmployeeList();
+  }
+
+  get getListForm(): FormArray {
     return this.secondForm.get('list') as FormArray;
   }
 
-  innerForm(index:number) : FormArray {
-    let roasterForm = this.secondForm.get('list') as FormArray;
-    return roasterForm.at(index).get("pickup") as FormArray
+  getForm(): FormArray {
+    return this.secondForm.get('list') as FormArray;
+  }
+
+  itemOfList(index:number) : FormArray {
+    return this.getForm().at(index).get("pickup") as FormArray
   }
 
   public onSelect() {
@@ -172,10 +184,10 @@ export class CreateRoasterComponent implements OnInit {
           },
           {
             id: 2,
-            pickup_time: '',
-            drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_time: '05:00 PM',
+            drop_time: '08:00 PM',
+            pickup_location:'Hapur',
+            drop_location:'New Delhi'
           },
           {
             id: 3,
@@ -326,13 +338,13 @@ export class CreateRoasterComponent implements OnInit {
       }
     ]
     for (let i = 0; i < this.roasterList.length; i++) {
-      this.roasterFormlist.push(this.fb.group({
+      this.getListForm.push(this.fb.group({
           id:this.roasterList[i].id,
           name:this.roasterList[i].name,
           pickup:this.fb.array([])
       }))
       for (let j = 0; j < this.roasterList[i].pickup.length; j++) {
-        this.roasterFormlist.controls[i]['controls'].pickup.push(this.fb.group({
+        this.getListForm.controls[i]['controls'].pickup.push(this.fb.group({
           id: this.roasterList[i].pickup[j].id,
           pickup_time:  this.roasterList[i].pickup[j].pickup_time,
           drop_time:  this.roasterList[i].pickup[j].drop_time,
@@ -341,6 +353,41 @@ export class CreateRoasterComponent implements OnInit {
         }))
       }
     }
+  }
+
+  public getEmployeeList(){
+    let data = {};
+    this.dataService.post('admin/employeeList', data).subscribe(res=>{
+      for (let i = 0; i < res['data'].length; i++) {
+        this.getListForm.push(this.fb.group({
+            emp_id:res['data'][i].emp_id,
+            name:res['data'][i].first_name ? (res['data'][i].last_name ? res['data'][i].first_name+' '+res['data'][i].last_name : res['data'][i].first_name) : (res['data'][i].first_name ? res['data'][i].first_name : ''),
+            pickup:this.fb.array([])
+        }))
+        if(res['data'][i].pickup && res['data'][i].pickup.length){
+          for (let j = 0; j < res['data'][i].pickup.length; j++) {
+            this.getListForm.controls[i]['controls'].pickup.push(this.fb.group({
+              id: res['data'][i].pickup[j].id || '',
+              pickup_time:  res['data'][i].pickup[j].pickup_time || '',
+              drop_time:  res['data'][i].pickup[j].drop_time || '',
+              pickup_location: res['data'][i].pickup[j].pickup_location || '',
+              drop_location: res['data'][i].pickup[j].drop_location || ''
+            }))
+          }
+        }
+        else{
+          for (let j = 0; j < 7; j++) {
+            this.getListForm.controls[i]['controls'].pickup.push(this.fb.group({
+              id:'',
+              pickup_time:'',
+              drop_time:'',
+              pickup_location:'',
+              drop_location:''
+            }))
+          }
+        }
+      }
+    })
   }
 
 }

@@ -116,21 +116,25 @@
                     </th> -->
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr formArrayName="list" *ngFor="let roaster of roasterFormlist.controls; let i = index">
-                            <td >{{ roaster['controls'].name.value }}</td>
-                            <td *ngFor="let item of roaster['controls'].pickup.controls; let j = index">
-                              <div class="md-form">
-                                <input style="width:80px;" placeholder="Select time" type="text" class="timepicker">
-                                <input style="width:80px;"  placeholder="Location" type="text">
+                    <tbody >
+                      <tr formArrayName="list" *ngFor="let roaster of getListForm['controls']; let i = index">
+                          <td >{{ roaster['controls'].name.value }}</td>
+                          <td [formGroupName]="i">
+                            <div formArrayName="pickup" *ngFor="let item of itemOfList(i)['controls']; let j = index" >
+                              <div [formGroupName]="j" class="md-form">
+                                <input style="width:80px;" formControlName="pickup_time" placeholder="Select time" type="text" class="timepicker">
+                                <input style="width:80px;"  formControlName="pickup_location"  placeholder="Location" type="text">
                               </div>
-                            </td>
-                            <td *ngFor="let item of roaster['controls'].pickup.controls; let j = index">
-                              <div class="md-form">
-                                <input style="width:80px;" placeholder="Select time" type="text" class="timepicker">
-                                <input style="width:80px;" placeholder="Location" type="text">
+                            </div>
+                          </td>
+                          <td [formGroupName]="i">
+                            <div formArrayName="pickup" *ngFor="let item of itemOfList(i)['controls']; let j = index" >
+                              <div [formGroupName]="j" class="md-form">
+                                <input style="width:80px;"  formControlName="drop_time"  placeholder="Select time" type="text" class="timepicker">
+                                <input style="width:80px;"  formControlName="drop_location"  placeholder="Location" type="text">
                               </div>
-                            </td>
+                            </div>
+                          </td>
                         </tr>
                     </tbody>
                   </table>
@@ -138,7 +142,7 @@
 
               </div>
               <div class="text-center mt-4">
-                <button class="btn btn-outline-primary btn-sm waves-effect waves-light">Submit</button>
+                <button (click)="submitForm()" class="btn btn-outline-primary btn-sm waves-effect waves-light">Submit</button>
               </div>
             </form>
           </div>
