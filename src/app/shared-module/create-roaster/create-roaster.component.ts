@@ -25,7 +25,7 @@ export class CreateRoasterComponent implements OnInit {
     //   ])
     // })
     this.secondForm = this.fb.array([
-      
+
     ])
   }
 
@@ -54,36 +54,43 @@ export class CreateRoasterComponent implements OnInit {
             id:1,
             pickup_time:'',
             drop_time:'',
+            location:''
           },
           {
             id:2,
             pickup_time:'',
             drop_time:'',
+            location:''
           },
           {
             id:3,
             pickup_time:'',
             drop_time:'',
+            location:''
           },
           {
             id:4,
             pickup_time:'',
             drop_time:'',
+            location:''
           },
           {
             id:5,
             pickup_time:'',
             drop_time:'',
+            location:''
           },
           {
             id:6,
             pickup_time:'',
             drop_time:'',
+            location:''
           },
           {
             id:7,
             pickup_time:'',
             drop_time:'',
+            location:''
           }
         ]
       },
@@ -95,36 +102,43 @@ export class CreateRoasterComponent implements OnInit {
             id:1,
             pickup_time:'',
             drop_time:'',
+            location:''
           },
           {
             id:2,
             pickup_time:'',
             drop_time:'',
+            location:''
           },
           {
             id:3,
             pickup_time:'',
             drop_time:'',
+            location:''
           },
           {
             id:4,
             pickup_time:'',
             drop_time:'',
+            location:''
           },
           {
             id:5,
             pickup_time:'',
             drop_time:'',
+            location:''
           },
           {
             id:6,
             pickup_time:'',
             drop_time:'',
+            location:''
           },
           {
             id:7,
             pickup_time:'',
             drop_time:'',
+            location:''
           }
         ]
       },
@@ -136,36 +150,43 @@ export class CreateRoasterComponent implements OnInit {
             id:1,
             pickup_time:'',
             drop_time:'',
+            location:''
           },
           {
             id:2,
             pickup_time:'',
             drop_time:'',
+            location:''
           },
           {
             id:3,
             pickup_time:'',
             drop_time:'',
+            location:''
           },
           {
             id:4,
             pickup_time:'',
             drop_time:'',
+            location:''
           },
           {
             id:5,
             pickup_time:'',
             drop_time:'',
+            location:''
           },
           {
             id:6,
             pickup_time:'',
             drop_time:'',
+            location:''
           },
           {
             id:7,
             pickup_time:'',
             drop_time:'',
+            location:''
           }
         ]
       },
@@ -177,36 +198,43 @@ export class CreateRoasterComponent implements OnInit {
             id:1,
             pickup_time:'',
             drop_time:'',
+            location:''
           },
           {
             id:2,
             pickup_time:'',
             drop_time:'',
+            location:''
           },
           {
             id:3,
             pickup_time:'',
             drop_time:'',
+            location:''
           },
           {
             id:4,
             pickup_time:'',
             drop_time:'',
+            location:''
           },
           {
             id:5,
             pickup_time:'',
             drop_time:'',
+            location:''
           },
           {
             id:6,
             pickup_time:'',
             drop_time:'',
+            location:''
           },
           {
             id:7,
             pickup_time:'',
             drop_time:'',
+            location:''
           }
         ]
       },
@@ -218,36 +246,43 @@ export class CreateRoasterComponent implements OnInit {
             id:1,
             pickup_time:'',
             drop_time:'',
+            location:''
           },
           {
             id:2,
             pickup_time:'',
             drop_time:'',
+            location:''
           },
           {
             id:3,
             pickup_time:'',
             drop_time:'',
+            location:''
           },
           {
             id:4,
             pickup_time:'',
             drop_time:'',
+            location:''
           },
           {
             id:5,
             pickup_time:'',
             drop_time:'',
+            location:''
           },
           {
             id:6,
             pickup_time:'',
             drop_time:'',
+            location:''
           },
           {
             id:7,
             pickup_time:'',
             drop_time:'',
+            location:''
           }
         ]
       }
