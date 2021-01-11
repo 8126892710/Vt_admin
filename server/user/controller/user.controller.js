@@ -128,72 +128,9 @@ async function employeeList(req, res) {
         return response.sendResponse(res, 400, 'Error', err);
     }
 }
-const arr = [
-    {
-        emp_id: 1,
-        name: 'Umesh',
-        pickup: [
-            {
-                "id": 1,
-                "pickup_time": "",
-                "drop_time": "",
-                "pickup_location": "",
-                "drop_location": "",
-                "date": '10-01-2021'
-            },
-            {
-                "id": 2,
-                "pickup_time": "",
-                "drop_time": "",
-                "pickup_location": "",
-                "drop_location": "",
-                "date": '10-01-2021'
-            },
-            {
-                "id": 3,
-                "pickup_time": "",
-                "drop_time": "",
-                "pickup_location": "",
-                "drop_location": "",
-                "date": '10-01-2021'
-            },
-            {
-                "id": 4,
-                "pickup_time": "",
-                "drop_time": "",
-                "pickup_location": "",
-                "drop_location": "",
-                "date": '10-01-2021'
-            },
-            {
-                "id": 5,
-                "pickup_time": "",
-                "drop_time": "",
-                "pickup_location": "",
-                "drop_location": "",
-                "date": '10-01-2021'
-            },
-            {
-                "id": 6,
-                "pickup_time": "",
-                "drop_time": "",
-                "pickup_location": "",
-                "drop_location": "",
-                "date": '10-01-2021'
-            },
-            {
-                "id": 7,
-                "pickup_time": "",
-                "drop_time": "",
-                "pickup_location": "",
-                "drop_location": "",
-                "date": '10-01-2021'
-            }
-        ]
-    }
-]
+
+/**Employee roster create api. */
 async function createEmployeeRoster(req, res) {
-    console.log("arr========>>>>",JSON.stringify,(req.body.arr));
     try {
         async.forEachSeries(req.body.arr, async (doc, next) => {
             async.forEachSeries(doc.pickup, async (m, cb) => {
@@ -215,24 +152,8 @@ async function createEmployeeRoster(req, res) {
     } catch (err) {
         return response.sendResponse(res, 400, 'Error', err);
     }
-    //     try {
-    //         for (let i = 0; i < arr.length; i++) {
-    //             for (let j = 0; j < arr[i].pickup.length; j++) {
-    //                 let q = `INSERT INTO ROSTER (emp_id,name,pickup_time,dropoff_time,pickup_location,dropoff_location,date)
-    //  VALUES ('${arr[i].id}','${arr[i].name}',
-    //  '${arr[i].pickup[j].pickup_time}','${arr[i].pickup[j].drop_time}',
-    //  '${arr[i].pickup[j].pickup_location}','${arr[i].pickup[j].dropoff_location}','${arr[i].pickup[j].date}');`
-    //                 let row = await pool.query(q).then(data => {
-    //                     return response.sendResponse(res, 200, 'Success', data);
-    //                 }).catch(err => {
-    //                     return response.sendResponse(res, 400, 'Error', err);
-    //                 });
-    //             }
-    //         }
-    //     } catch (err) {
-    //         return response.sendResponse(res, 400, 'Error', err);
-    //     }
 }
+/**Employee roster list api. */
 async function employeeRosterList(req, res) {
     try {
         let query = ""

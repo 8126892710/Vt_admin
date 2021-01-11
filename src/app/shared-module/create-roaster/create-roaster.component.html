@@ -62,10 +62,10 @@
                         </th>
                         <th colspan="2">05/01/2021<br> Mon
                         </th>
-                        <th colspan="2">06/01/2021<br> Mon
+                        <!-- <th colspan="2">06/01/2021<br> Mon
                         </th>
                         <th colspan="2">07/01/2021<br> Mon
-                        </th>
+                        </th> -->
 
                       </tr>
 
@@ -102,16 +102,16 @@
                         </th>
                         <!-- <th  >Location
                     </th> -->
-                        <th>Pickup Time
+                        <!-- <th>Pickup Time
                         </th>
                         <th>Drop Time
-                        </th>
+                        </th> -->
                         <!-- <th  >Location
                     </th> -->
-                        <th>Pickup Time
+                        <!-- <th>Pickup Time
                         </th>
                         <th>Drop Time
-                        </th>
+                        </th> -->
                         <!-- <th  >Location
                     </th> -->
                       </tr>
@@ -119,16 +119,16 @@
                     <tbody >
                       <tr formArrayName="list" *ngFor="let roaster of getListForm['controls']; let i = index">
                           <td >{{ roaster['controls'].name.value }}</td>
-                          <td [formGroupName]="i">
-                            <div formArrayName="pickup" *ngFor="let item of itemOfList(i)['controls']; let j = index" >
+                          <td [formGroupName]="i" *ngFor="let item of itemOfList(i)['controls']; let j = index">
+                            <div formArrayName="pickup"  >
                               <div [formGroupName]="j" class="md-form">
                                 <input style="width:80px;" formControlName="pickup_time" placeholder="Select time" type="text" class="timepicker">
                                 <input style="width:80px;"  formControlName="pickup_location"  placeholder="Location" type="text">
                               </div>
                             </div>
                           </td>
-                          <td [formGroupName]="i">
-                            <div formArrayName="pickup" *ngFor="let item of itemOfList(i)['controls']; let j = index" >
+                          <td [formGroupName]="i" *ngFor="let item of itemOfList(i)['controls']; let j = index">
+                            <div formArrayName="pickup"  >
                               <div [formGroupName]="j" class="md-form">
                                 <input style="width:80px;"  formControlName="drop_time"  placeholder="Select time" type="text" class="timepicker">
                                 <input style="width:80px;"  formControlName="drop_location"  placeholder="Location" type="text">

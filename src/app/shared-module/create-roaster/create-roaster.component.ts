@@ -15,21 +15,20 @@ export class CreateRoasterComponent implements OnInit {
   roasterList: any = [];
   constructor(
     private fb: FormBuilder,
-    private dataService:DataService
+    private dataService: DataService
   ) {
     this.firstForm = this.fb.group({
       user: [''],
       user_type: [''],
     });
     this.secondForm = this.fb.group({
-      list:this.fb.array([])
+      list: this.fb.array([])
     })
   }
 
-  public submitForm(){
-    let data = { arr:this.secondForm.value.list };
-    console.log("============>>>>",data);
-    this.dataService.post('admin/createEmployeeRoster', data).subscribe(res=>{
+  public submitForm() {
+    let data = { arr: this.secondForm.value.list };
+    this.dataService.post('admin/createEmployeeRoster', data).subscribe(res => {
       this.dataService.showSuccess(res['responseMessage']);
     })
   }
@@ -48,12 +47,12 @@ export class CreateRoasterComponent implements OnInit {
     return this.secondForm.get('list') as FormArray;
   }
 
-  itemOfList(index:number) : FormArray {
+  itemOfList(index: number): FormArray {
     return this.getForm().at(index).get("pickup") as FormArray
   }
 
   public onSelect() {
-    console.log("fir-===========>>>", this.firstForm.value);
+    // console.log("fir-===========>>>", this.firstForm.value);
   }
 
   public callingJQuery() {
@@ -73,50 +72,50 @@ export class CreateRoasterComponent implements OnInit {
             id: 1,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           },
           {
             id: 2,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           },
           {
             id: 3,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           },
           {
             id: 4,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           },
           {
             id: 5,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           },
           {
             id: 6,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           },
           {
             id: 7,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           }
         ]
       },
@@ -128,50 +127,50 @@ export class CreateRoasterComponent implements OnInit {
             id: 1,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           },
           {
             id: 2,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           },
           {
             id: 3,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           },
           {
             id: 4,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           },
           {
             id: 5,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           },
           {
             id: 6,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           },
           {
             id: 7,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           }
         ]
       },
@@ -183,50 +182,50 @@ export class CreateRoasterComponent implements OnInit {
             id: 1,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           },
           {
             id: 2,
             pickup_time: '05:00 PM',
             drop_time: '08:00 PM',
-            pickup_location:'Hapur',
-            drop_location:'New Delhi'
+            pickup_location: 'Hapur',
+            drop_location: 'New Delhi'
           },
           {
             id: 3,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           },
           {
             id: 4,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           },
           {
             id: 5,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           },
           {
             id: 6,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           },
           {
             id: 7,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           }
         ]
       },
@@ -238,50 +237,50 @@ export class CreateRoasterComponent implements OnInit {
             id: 1,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           },
           {
             id: 2,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           },
           {
             id: 3,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           },
           {
             id: 4,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           },
           {
             id: 5,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           },
           {
             id: 6,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           },
           {
             id: 7,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           }
         ]
       },
@@ -293,65 +292,65 @@ export class CreateRoasterComponent implements OnInit {
             id: 1,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           },
           {
             id: 2,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           },
           {
             id: 3,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           },
           {
             id: 4,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           },
           {
             id: 5,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           },
           {
             id: 6,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           },
           {
             id: 7,
             pickup_time: '',
             drop_time: '',
-            pickup_location:'',
-            drop_location:''
+            pickup_location: '',
+            drop_location: ''
           }
         ]
       }
     ]
     for (let i = 0; i < this.roasterList.length; i++) {
       this.getListForm.push(this.fb.group({
-          id:this.roasterList[i].id,
-          name:this.roasterList[i].name,
-          pickup:this.fb.array([])
+        id: this.roasterList[i].id,
+        name: this.roasterList[i].name,
+        pickup: this.fb.array([])
       }))
       for (let j = 0; j < this.roasterList[i].pickup.length; j++) {
         this.getListForm.controls[i]['controls'].pickup.push(this.fb.group({
           id: this.roasterList[i].pickup[j].id,
-          pickup_time:  this.roasterList[i].pickup[j].pickup_time,
-          drop_time:  this.roasterList[i].pickup[j].drop_time,
+          pickup_time: this.roasterList[i].pickup[j].pickup_time,
+          drop_time: this.roasterList[i].pickup[j].drop_time,
           pickup_location: this.roasterList[i].pickup[j].pickup_location,
           drop_location: this.roasterList[i].pickup[j].drop_location
         }))
@@ -359,36 +358,36 @@ export class CreateRoasterComponent implements OnInit {
     }
   }
 
-  public getEmployeeList(){
+  public getEmployeeList() {
     let data = {};
-    this.dataService.post('admin/employeeList', data).subscribe(res=>{
+    this.dataService.post('admin/employeeList', data).subscribe(res => {
       for (let i = 0; i < res['data'].length; i++) {
         this.getListForm.push(this.fb.group({
-            emp_id:res['data'][i].emp_id,
-            name:res['data'][i].first_name ? (res['data'][i].last_name ? res['data'][i].first_name+' '+res['data'][i].last_name : res['data'][i].first_name) : (res['data'][i].first_name ? res['data'][i].first_name : ''),
-            pickup:this.fb.array([])
+          emp_id: res['data'][i].emp_id,
+          name: res['data'][i].first_name ? (res['data'][i].last_name ? res['data'][i].first_name + ' ' + res['data'][i].last_name : res['data'][i].first_name) : (res['data'][i].first_name ? res['data'][i].first_name : ''),
+          pickup: this.fb.array([])
         }))
-        if(res['data'][i].pickup && res['data'][i].pickup.length){
+        if (res['data'][i].pickup && res['data'][i].pickup.length) {
           for (let j = 0; j < res['data'][i].pickup.length; j++) {
             this.getListForm.controls[i]['controls'].pickup.push(this.fb.group({
               id: res['data'][i].pickup[j].id || '',
-              pickup_time:  res['data'][i].pickup[j].pickup_time || '',
-              drop_time:  res['data'][i].pickup[j].drop_time || '',
+              pickup_time: res['data'][i].pickup[j].pickup_time || '',
+              drop_time: res['data'][i].pickup[j].drop_time || '',
               pickup_location: res['data'][i].pickup[j].pickup_location || '',
               drop_location: res['data'][i].pickup[j].drop_location || '',
               date: res['data'][i].pickup[j].date || ''
             }))
           }
         }
-        else{
-          for (let j = 0; j < 7; j++) {
+        else {
+          for (let j = 0; j < 5; j++) {
             this.getListForm.controls[i]['controls'].pickup.push(this.fb.group({
-              id:'',
-              pickup_time:'',
-              drop_time:'',
-              pickup_location:'',
-              drop_location:'',
-              date:`${j+18}-01-2021`
+              id: '',
+              pickup_time: '',
+              drop_time: '',
+              pickup_location: '',
+              drop_location: '',
+              date: `2021-01-${j + 18}`
             }))
           }
         }
